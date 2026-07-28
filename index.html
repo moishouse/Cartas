@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moishouse 464</title>
+
+  <style>
+    :root{
+      --bg:#000;
+      --text:#f7f7f7;
+      --yellow:#fff56a;
+      --cyan:#78f5ff;
+      --pink:#ff69b4;
+      --green:#76f58a;
+      --violet:#c58cff;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html,body{
+      min-height:100%;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      display:flex;
+      justify-content:center;
+      padding:34px 18px 50px;
+    }
+
+    .page{
+      width:min(100%, 520px);
+      text-align:center;
+    }
+
+    .brand{
+      margin-bottom:26px;
+    }
+
+    .logo{
+      width:230px;
+      max-width:75vw;
+      margin:0 auto 8px;
+      filter:drop-shadow(0 0 6px rgba(255,255,255,.34));
+    }
+
+    .brand-name{
+      font-size:22px;
+      letter-spacing:12px;
+      font-weight:600;
+      margin-left:12px;
+    }
+
+    .brand-number{
+      margin-top:8px;
+      font-size:22px;
+      letter-spacing:10px;
+      font-weight:300;
+      margin-left:10px;
+    }
+
+    .menu{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .card{
+      --accent:#fff;
+      position:relative;
+      min-height:92px;
+      display:grid;
+      grid-template-columns:92px 1fr;
+      align-items:center;
+      color:#fff;
+      text-decoration:none;
+      border:2px solid var(--accent);
+      border-radius:17px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.035), rgba(255,255,255,.01)),
+        #020202;
+      box-shadow:
+        0 0 8px color-mix(in srgb, var(--accent) 70%, transparent),
+        inset 0 0 10px color-mix(in srgb, var(--accent) 12%, transparent);
+      overflow:hidden;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .card:hover,
+    .card:focus-visible{
+      transform:translateY(-2px) scale(1.01);
+      background:#080808;
+      box-shadow:
+        0 0 14px color-mix(in srgb, var(--accent) 88%, transparent),
+        0 0 28px color-mix(in srgb, var(--accent) 30%, transparent),
+        inset 0 0 14px color-mix(in srgb, var(--accent) 16%, transparent);
+      outline:none;
+    }
+
+    .icon-wrap{
+      min-height:92px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:var(--accent);
+    }
+
+    .icon{
+      width:52px;
+      height:52px;
+      fill:none;
+      stroke:currentColor;
+      stroke-width:2.2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      filter:drop-shadow(0 0 5px currentColor);
+    }
+
+    .label{
+      text-align:left;
+      padding:16px 18px 16px 8px;
+      font-size:25px;
+      line-height:1.17;
+      letter-spacing:1px;
+      font-weight:700;
+      text-transform:uppercase;
+    }
+
+    .yellow{ --accent:var(--yellow); }
+    .cyan{ --accent:var(--cyan); }
+    .pink{ --accent:var(--pink); }
+    .green{ --accent:var(--green); }
+    .violet{ --accent:var(--violet); }
+
+    @media (max-width:430px){
+      body{ padding-inline:14px; }
+      .brand-name{ font-size:18px; letter-spacing:9px; }
+      .brand-number{ font-size:18px; letter-spacing:8px; }
+      .card{ grid-template-columns:78px 1fr; min-height:82px; }
+      .icon-wrap{ min-height:82px; }
+      .icon{ width:44px; height:44px; }
+      .label{ font-size:20px; padding-right:12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="brand" aria-label="Moishouse 464">
+      <svg class="logo" viewBox="0 0 230 200" role="img" aria-label="Logo Moishouse">
+        <g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 182V58L88 124" />
+          <path d="M22 58L208 182" />
+          <path d="M137 70L208 6V118" />
+          <path d="M24 6L208 182" />
+        </g>
+      </svg>
+      <div class="brand-name">MOISHOUSE</div>
+      <div class="brand-number">464</div>
+    </header>
+
+    <nav class="menu" aria-label="Opciones">
+
+      <a class="card yellow" href="https://ejemplo.com/despedida-solteros" target="_blank" rel="noopener">
+        <span class="icon-wrap" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 64 64">
+            <path d="M23 20l-9 7 6 24 12-4-4-25z"/>
+            <path d="M41 20l9 7-6 24-12-4 4-25z"/>
+            <path d="M25 18l7 8 7-8"/>
+            <path d="M12 13l5 4M19 7l2 6M32 5v7M45 7l-2 6M52 13l-5 4"/>
+          </svg>
+        </span>
+        <span class="label">Despedida<br>de solteros</span>
+      </a>
+
+      <a class="card cyan" href="https://ejemplo.com/despedida-soltero" target="_blank" rel="noopener">
+        <span class="icon-wrap" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 64 64">
+            <path d="M31 24L18 15v20l13-8z"/>
+            <path d="M33 24l13-9v20l-13-8z"/>
+            <circle cx="32" cy="25" r="5"/>
+            <circle cx="32" cy="46" r="3"/>
+            <path d="M32 35v3"/>
+          </svg>
+        </span>
+        <span class="label">Despedida<br>de soltero</span>
+      </a>
+
+      <a class="card pink" href="https://ejemplo.com/cumpleanos" target="_blank" rel="noopener">
+        <span class="icon-wrap" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 64 64">
+            <path d="M14 31h36v18H14z"/>
+            <path d="M11 49h42v6H11z"/>
+            <path d="M18 31v-7h8v7M28 31v-7h8v7M38 31v-7h8v7"/>
+            <path d="M22 18c3-3 3-6 0-9-3 3-3 6 0 9z"/>
+            <path d="M32 18c3-3 3-6 0-9-3 3-3 6 0 9z"/>
+            <path d="M42 18c3-3 3-6 0-9-3 3-3 6 0 9z"/>
+          </svg>
+        </span>
+        <span class="label">Cumpleaños</span>
+      </a>
+
+      <a class="card green" href="https://ejemplo.com/celebraciones" target="_blank" rel="noopener">
+        <span class="icon-wrap" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 64 64">
+            <path d="M12 12h19c0 15-4 23-10 23S12 27 12 12z"/>
+            <path d="M21 35v11M14 49h14"/>
+            <path d="M52 12H33c0 15 4 23 10 23s9-8 9-23z"/>
+            <path d="M43 35v11M36 49h14"/>
+            <path d="M27 10l10 22"/>
+          </svg>
+        </span>
+        <span class="label">Y celebraciones</span>
+      </a>
+
+      <a class="card violet" href="https://ejemplo.com/carta" target="_blank" rel="noopener">
+        <span class="icon-wrap" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 64 64">
+            <path d="M16 9h26l7 7v39H16z"/>
+            <path d="M42 9v10h10"/>
+            <path d="M23 28h19M23 36h19M23 44h13"/>
+          </svg>
+        </span>
+        <span class="label">Carta</span>
+      </a>
+
+    </nav>
+  </main>
+</body>
+</html>
