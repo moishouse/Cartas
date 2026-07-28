@@ -7,13 +7,11 @@
 
   <style>
     :root{
-      --bg:#000;
-      --text:#f7f7f7;
-      --yellow:#fff56a;
-      --cyan:#78f5ff;
-      --pink:#ff69b4;
-      --green:#76f58a;
-      --violet:#c58cff;
+      --yellow:#ffe85c;
+      --pink:#ff55c8;
+      --purple:#ca73ff;
+      --cyan:#50f0ff;
+      --green:#64ffb4;
     }
 
     *{
@@ -24,129 +22,233 @@
 
     html,body{
       min-height:100%;
-      background:var(--bg);
-      color:var(--text);
-      font-family:Arial, Helvetica, sans-serif;
     }
 
     body{
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,255,255,.035), transparent 18%),
+        radial-gradient(circle at 85% 30%, rgba(255,255,255,.025), transparent 20%),
+        #000;
+      color:#fff;
+      font-family:Arial, Helvetica, sans-serif;
       display:flex;
       justify-content:center;
-      padding:34px 18px 50px;
+      padding:12px 14px 28px;
     }
 
     .page{
-      width:min(100%, 520px);
-      text-align:center;
+      width:min(100%, 500px);
     }
 
     .brand{
-      margin-bottom:26px;
+      text-align:center;
+      margin:8px 0 12px;
     }
 
     .logo{
-      width:230px;
-      max-width:75vw;
-      margin:0 auto 8px;
-      filter:drop-shadow(0 0 6px rgba(255,255,255,.34));
+      width:225px;
+      max-width:72vw;
+      height:auto;
+      display:block;
+      margin:0 auto 7px;
+      filter:
+        drop-shadow(0 0 3px rgba(255,255,255,.8))
+        drop-shadow(0 0 10px rgba(255,255,255,.25));
     }
 
     .brand-name{
-      font-size:22px;
-      letter-spacing:12px;
-      font-weight:600;
-      margin-left:12px;
+      margin-left:10px;
+      font-size:20px;
+      font-weight:700;
+      letter-spacing:11px;
+      color:#fff;
+      text-shadow:0 0 9px rgba(255,255,255,.55);
     }
 
-    .brand-number{
-      margin-top:8px;
-      font-size:22px;
-      letter-spacing:10px;
-      font-weight:300;
-      margin-left:10px;
+    .code{
+      text-align:center;
+      font-size:17px;
+      letter-spacing:8px;
+      margin:0 0 10px 8px;
+      text-shadow:0 0 10px rgba(255,255,255,.75);
     }
 
     .menu{
       display:flex;
       flex-direction:column;
-      gap:16px;
+      gap:14px;
     }
 
     .card{
       --accent:#fff;
       position:relative;
-      min-height:92px;
+      min-height:102px;
       display:grid;
-      grid-template-columns:92px 1fr;
+      grid-template-columns:105px 1fr 105px;
       align-items:center;
-      color:#fff;
       text-decoration:none;
+      color:#fff;
+      background:#050505;
       border:2px solid var(--accent);
-      border-radius:17px;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.035), rgba(255,255,255,.01)),
-        #020202;
-      box-shadow:
-        0 0 8px color-mix(in srgb, var(--accent) 70%, transparent),
-        inset 0 0 10px color-mix(in srgb, var(--accent) 12%, transparent);
+      border-radius:18px;
+      padding:0 4px;
       overflow:hidden;
-      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+      box-shadow:
+        0 0 5px var(--accent),
+        0 0 13px color-mix(in srgb, var(--accent) 55%, transparent),
+        inset 0 0 10px color-mix(in srgb, var(--accent) 25%, transparent);
+      transition:.2s ease;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:8px;
+      border-radius:12px;
+      pointer-events:none;
+      box-shadow:inset 0 0 16px color-mix(in srgb, var(--accent) 16%, transparent);
     }
 
     .card:hover,
     .card:focus-visible{
       transform:translateY(-2px) scale(1.01);
-      background:#080808;
-      box-shadow:
-        0 0 14px color-mix(in srgb, var(--accent) 88%, transparent),
-        0 0 28px color-mix(in srgb, var(--accent) 30%, transparent),
-        inset 0 0 14px color-mix(in srgb, var(--accent) 16%, transparent);
       outline:none;
+      box-shadow:
+        0 0 8px var(--accent),
+        0 0 22px color-mix(in srgb, var(--accent) 68%, transparent),
+        0 0 38px color-mix(in srgb, var(--accent) 30%, transparent),
+        inset 0 0 12px color-mix(in srgb, var(--accent) 35%, transparent);
     }
 
-    .icon-wrap{
-      min-height:92px;
+    .yellow{--accent:var(--yellow)}
+    .pink{--accent:var(--pink)}
+    .purple{--accent:var(--purple)}
+    .cyan{--accent:var(--cyan)}
+    .green{--accent:var(--green)}
+
+    .icon-area{
+      color:var(--accent);
       display:flex;
       justify-content:center;
       align-items:center;
-      color:var(--accent);
+      z-index:1;
     }
 
     .icon{
-      width:52px;
-      height:52px;
+      width:67px;
+      height:67px;
       fill:none;
       stroke:currentColor;
-      stroke-width:2.2;
+      stroke-width:2.05;
       stroke-linecap:round;
       stroke-linejoin:round;
-      filter:drop-shadow(0 0 5px currentColor);
+      filter:
+        drop-shadow(0 0 2px currentColor)
+        drop-shadow(0 0 7px currentColor);
     }
 
-    .label{
-      text-align:left;
-      padding:16px 18px 16px 8px;
-      font-size:25px;
-      line-height:1.17;
-      letter-spacing:1px;
-      font-weight:700;
+    .title{
+      z-index:1;
       text-transform:uppercase;
+      font-weight:800;
+      letter-spacing:.6px;
+      text-align:left;
+      line-height:1.06;
+      font-size:23px;
+      text-shadow:0 0 9px rgba(255,255,255,.45);
     }
 
-    .yellow{ --accent:var(--yellow); }
-    .cyan{ --accent:var(--cyan); }
-    .pink{ --accent:var(--pink); }
-    .green{ --accent:var(--green); }
-    .violet{ --accent:var(--violet); }
+    .title.one-line{
+      text-align:center;
+      white-space:nowrap;
+      font-size:20px;
+    }
 
-    @media (max-width:430px){
-      body{ padding-inline:14px; }
-      .brand-name{ font-size:18px; letter-spacing:9px; }
-      .brand-number{ font-size:18px; letter-spacing:8px; }
-      .card{ grid-template-columns:78px 1fr; min-height:82px; }
-      .icon-wrap{ min-height:82px; }
-      .icon{ width:44px; height:44px; }
-      .label{ font-size:20px; padding-right:12px; }
+    .footer{
+      margin-top:17px;
+      text-align:center;
+    }
+
+    .slogan{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:8px;
+      text-transform:uppercase;
+      font-weight:800;
+      letter-spacing:.45px;
+      font-size:12px;
+    }
+
+    .slogan .a{color:var(--yellow);text-shadow:0 0 7px var(--yellow)}
+    .slogan .b{color:var(--pink);text-shadow:0 0 7px var(--pink)}
+    .slogan .c{color:var(--cyan);text-shadow:0 0 7px var(--cyan)}
+    .slogan .dot{color:#fff}
+
+    .stroke{
+      margin-top:7px;
+      width:128px;
+      height:10px;
+    }
+
+    @media (max-width:520px){
+      .logo{
+        width:185px;
+      }
+
+      .brand-name{
+        font-size:16px;
+        letter-spacing:8px;
+        margin-left:8px;
+      }
+
+      .code{
+        font-size:15px;
+        letter-spacing:7px;
+      }
+
+      .card{
+        grid-template-columns:82px 1fr 82px;
+        min-height:92px;
+      }
+
+      .icon{
+        width:55px;
+        height:55px;
+      }
+
+      .title{
+        font-size:18px;
+      }
+
+      .title.one-line{
+        font-size:16px;
+      }
+
+      .slogan{
+        font-size:10px;
+        gap:6px;
+      }
+    }
+
+    @media (max-width:370px){
+      .card{
+        grid-template-columns:70px 1fr 70px;
+      }
+
+      .icon{
+        width:47px;
+        height:47px;
+      }
+
+      .title{
+        font-size:16px;
+      }
+
+      .title.one-line{
+        font-size:14px;
+      }
     }
   </style>
 </head>
@@ -154,84 +256,176 @@
 <body>
   <main class="page">
     <header class="brand" aria-label="Moishouse 464">
-      <svg class="logo" viewBox="0 0 230 200" role="img" aria-label="Logo Moishouse">
-        <g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 182V58L88 124" />
-          <path d="M22 58L208 182" />
-          <path d="M137 70L208 6V118" />
-          <path d="M24 6L208 182" />
+      <svg class="logo" viewBox="0 0 240 195" role="img" aria-label="Logo Moishouse">
+        <g fill="none"
+           stroke="#ffffff"
+           stroke-width="5"
+           stroke-linecap="round"
+           stroke-linejoin="round">
+          <path d="M24 181V57L91 124"/>
+          <path d="M24 57L214 181"/>
+          <path d="M140 70L214 7V119"/>
+          <path d="M27 7L214 181"/>
         </g>
       </svg>
+
       <div class="brand-name">MOISHOUSE</div>
-      <div class="brand-number">464</div>
+      <div class="code">464</div>
     </header>
 
-    <nav class="menu" aria-label="Opciones">
+    <nav class="menu">
 
-      <a class="card yellow" href="https://ejemplo.com/despedida-solteros" target="_blank" rel="noopener">
-        <span class="icon-wrap" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 64 64">
-            <path d="M23 20l-9 7 6 24 12-4-4-25z"/>
-            <path d="M41 20l9 7-6 24-12-4 4-25z"/>
-            <path d="M25 18l7 8 7-8"/>
-            <path d="M12 13l5 4M19 7l2 6M32 5v7M45 7l-2 6M52 13l-5 4"/>
+      <a class="card yellow" href="https://ejemplo.com/despedida-soltero" target="_blank" rel="noopener">
+        <div class="icon-area">
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M17 24h23v20a8 8 0 0 1-8 8h-7a8 8 0 0 1-8-8z"/>
+            <path d="M40 28h7a6 6 0 0 1 0 12h-7"/>
+            <path d="M21 21c-5-2-5-8-1-11 1 3 4 4 5 7"/>
+            <path d="M28 20c-3-2-3-7 0-9 1 2 4 3 4 6"/>
+            <path d="M35 21c-4-2-4-8 0-10 1 3 4 3 5 7"/>
+            <path d="M10 19l-4-2M8 29H3M11 40l-4 2"/>
+            <path d="M50 19l4-3M53 29h5M50 40l4 3"/>
           </svg>
-        </span>
-        <span class="label">Despedida<br>de solteros</span>
+        </div>
+
+        <div class="title">Despedida<br>de soltero</div>
+
+        <div class="icon-area">
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M20 28L8 22v20l12-7z"/>
+            <path d="M22 28l18-11v25L22 35z"/>
+            <circle cx="42" cy="29" r="5"/>
+            <path d="M49 20l7-7M53 29h8M49 38l7 7"/>
+            <path d="M16 18l-6-5M15 45l-6 6"/>
+          </svg>
+        </div>
       </a>
 
-      <a class="card cyan" href="https://ejemplo.com/despedida-soltero" target="_blank" rel="noopener">
-        <span class="icon-wrap" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 64 64">
-            <path d="M31 24L18 15v20l13-8z"/>
-            <path d="M33 24l13-9v20l-13-8z"/>
-            <circle cx="32" cy="25" r="5"/>
-            <circle cx="32" cy="46" r="3"/>
-            <path d="M32 35v3"/>
+      <a class="card pink" href="https://ejemplo.com/despedida-soltera" target="_blank" rel="noopener">
+        <div class="icon-area">
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M11 44h42l-4 8H15z"/>
+            <path d="M15 44l5-18 12 10 12-19 5 27"/>
+            <path d="M28 35c0-3 2-5 4-5s4 2 4 5c0 3-4 5-4 5s-4-2-4-5z"/>
+            <path d="M20 22l1 1M32 14l1 1M45 22l1 1"/>
+            <path d="M10 31l-4 2M54 31l4 2M15 17l-3-3M49 17l3-3"/>
           </svg>
-        </span>
-        <span class="label">Despedida<br>de soltero</span>
+        </div>
+
+        <div class="title">Despedida<br>de soltera</div>
+
+        <div class="icon-area">
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M21 42l9-19 8 4-9 19z"/>
+            <path d="M30 23l3-9 7 4-2 9"/>
+            <path d="M17 49l5-7"/>
+            <path d="M43 44c3-4 9-6 13-2-4 7-13 7-17 2 1-1 2-1 4 0z"/>
+            <path d="M49 19c0-2 1-4 3-4s3 2 3 4c0 2-3 4-3 4s-3-2-3-4z"/>
+            <path d="M40 24c0-2 1-4 3-4s3 2 3 4c0 2-3 4-3 4s-3-2-3-4z"/>
+            <path d="M12 24l4 2M14 15l2 4M7 19h4"/>
+          </svg>
+        </div>
       </a>
 
-      <a class="card pink" href="https://ejemplo.com/cumpleanos" target="_blank" rel="noopener">
-        <span class="icon-wrap" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 64 64">
-            <path d="M14 31h36v18H14z"/>
-            <path d="M11 49h42v6H11z"/>
-            <path d="M18 31v-7h8v7M28 31v-7h8v7M38 31v-7h8v7"/>
-            <path d="M22 18c3-3 3-6 0-9-3 3-3 6 0 9z"/>
-            <path d="M32 18c3-3 3-6 0-9-3 3-3 6 0 9z"/>
-            <path d="M42 18c3-3 3-6 0-9-3 3-3 6 0 9z"/>
+      <a class="card purple" href="https://ejemplo.com/cumpleanos" target="_blank" rel="noopener">
+        <div class="icon-area">
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M14 31h36v15H14z"/>
+            <path d="M11 46h42v6H11z"/>
+            <path d="M19 31v-8M32 31v-8M45 31v-8"/>
+            <path d="M19 19c3-3 3-6 0-9-3 3-3 6 0 9z"/>
+            <path d="M32 19c3-3 3-6 0-9-3 3-3 6 0 9z"/>
+            <path d="M45 19c3-3 3-6 0-9-3 3-3 6 0 9z"/>
+            <path d="M18 37c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/>
+            <path d="M54 25l3-3M56 34h4M53 42l3 3"/>
           </svg>
-        </span>
-        <span class="label">Cumpleaños</span>
+        </div>
+
+        <div class="title one-line">Cumpleaños</div>
+
+        <div class="icon-area">
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M13 26h27v26H13z"/>
+            <path d="M27 26v26M13 35h27"/>
+            <path d="M18 18c3-4 9-2 9 2 0 4-5 6-9 6-2-3-2-6 0-8z"/>
+            <path d="M36 18c-3-4-9-2-9 2 0 4 5 6 9 6 2-3 2-6 0-8z"/>
+            <path d="M50 13c7 0 11 6 11 13 0 8-5 12-11 12s-11-4-11-12c0-7 4-13 11-13z"/>
+            <path d="M50 38v10l3 6"/>
+            <path d="M58 23l3-2M39 22l-3-2M40 39l-3 3"/>
+          </svg>
+        </div>
       </a>
 
-      <a class="card green" href="https://ejemplo.com/celebraciones" target="_blank" rel="noopener">
-        <span class="icon-wrap" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 64 64">
-            <path d="M12 12h19c0 15-4 23-10 23S12 27 12 12z"/>
-            <path d="M21 35v11M14 49h14"/>
-            <path d="M52 12H33c0 15 4 23 10 23s9-8 9-23z"/>
-            <path d="M43 35v11M36 49h14"/>
-            <path d="M27 10l10 22"/>
+      <a class="card cyan" href="https://ejemplo.com/celebraciones" target="_blank" rel="noopener">
+        <div class="icon-area">
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M11 14h17c0 12-4 18-8 18s-9-6-9-18z"/>
+            <path d="M20 32v11M13 47h14"/>
+            <path d="M53 14H36c0 12 4 18 8 18s9-6 9-18z"/>
+            <path d="M44 32v11M37 47h14"/>
+            <path d="M24 11l16 22"/>
+            <path d="M9 20l-4-1M58 20l4-1M30 8l2-4M35 8l2-4"/>
           </svg>
-        </span>
-        <span class="label">Y celebraciones</span>
+        </div>
+
+        <div class="title one-line">Y celebraciones</div>
+
+        <div class="icon-area">
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 9v8"/>
+            <circle cx="32" cy="34" r="16"/>
+            <path d="M16 34h32M32 18a25 25 0 0 0 0 32M32 18a25 25 0 0 1 0 32"/>
+            <path d="M22 21c2 4 6 6 10 6s8-2 10-6"/>
+            <path d="M22 47c2-4 6-6 10-6s8 2 10 6"/>
+            <path d="M11 34H6M58 34h-5M17 20l-3-3M47 20l3-3M17 48l-3 3M47 48l3 3"/>
+          </svg>
+        </div>
       </a>
 
-      <a class="card violet" href="https://ejemplo.com/carta" target="_blank" rel="noopener">
-        <span class="icon-wrap" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 64 64">
-            <path d="M16 9h26l7 7v39H16z"/>
-            <path d="M42 9v10h10"/>
-            <path d="M23 28h19M23 36h19M23 44h13"/>
+      <a class="card green" href="https://ejemplo.com/carta" target="_blank" rel="noopener">
+        <div class="icon-area">
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M16 11h30a4 4 0 0 1 4 4v36H20a4 4 0 0 0-4 4z"/>
+            <path d="M16 11v40a4 4 0 0 1 4-4h30"/>
+            <path d="M25 22h17M25 31h17M25 40h12"/>
+            <path d="M46 14l3-3M50 22h4M46 30l3 3"/>
           </svg>
-        </span>
-        <span class="label">Carta</span>
+        </div>
+
+        <div class="title one-line">Carta</div>
+
+        <div class="icon-area">
+          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M15 15h34L32 34z"/>
+            <path d="M32 34v14"/>
+            <path d="M24 50h16"/>
+            <path d="M40 11l7-5"/>
+            <path d="M47 11l3 4"/>
+            <path d="M18 23l-5 5M50 23l5 5"/>
+          </svg>
+        </div>
       </a>
 
     </nav>
+
+    <footer class="footer">
+      <div class="slogan">
+        <span class="a">Buena música</span>
+        <span class="dot">•</span>
+        <span class="b">Buena gente</span>
+        <span class="dot">•</span>
+        <span class="c">Noches que quedan</span>
+      </div>
+
+      <svg class="stroke" viewBox="0 0 128 10" aria-hidden="true">
+        <path d="M4 7C40 7 70 1 124 3"
+              fill="none"
+              stroke="#ff55c8"
+              stroke-width="3"
+              stroke-linecap="round"
+              style="filter:drop-shadow(0 0 4px #ff55c8) drop-shadow(0 0 10px #ff55c8)" />
+      </svg>
+    </footer>
   </main>
 </body>
 </html>
